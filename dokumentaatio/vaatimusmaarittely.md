@@ -2,7 +2,7 @@
 
 ## Sovelluksen tarkoitus
 
-Sovelluksen tarkoitus on tuottaa opettavaisia ja hauskoja pelihetkiä ystävien kanssa. Sovellus on siis osake- ja kryptomarkkina peli, jossa kuukausittain eniten tuottoa **leikkirahoilleen**. Kuukauden suurimmat voitot tallennetaan pilvessä olevaan tietokantaan, jonka pelaajat voivat seurata sijoittumistaan.
+Sovelluksen tarkoitus on tuottaa opettavaisia ja hauskoja pelihetkiä ystävien kanssa. Sovellus on siis osake- ja kryptomarkkina peli, jossa kuukausittain eniten tuottoa **leikkirahoilleen**. Kuukauden suurimmat voitot tallennetaan pilvessä olevaan tietokantaan, jonka avulla pelaajat voivat seurata sijoittumistaan muihin nähden.
 
 ## Käyttöliittymäluonnos
 
