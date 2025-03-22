@@ -3,3 +3,6 @@ __pycache__
 
 .coverage
 htmlcov
+
+# macOS Finder directory display configuration files
+.DS_Store
