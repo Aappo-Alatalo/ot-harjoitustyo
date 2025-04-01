@@ -2,11 +2,11 @@
 
 ## Sovelluksen tarkoitus
 
-Sovelluksen tarkoitus on tuottaa opettavaisia ja hauskoja pelihetkiä ystävien kanssa. Sovellus on siis osake- ja kryptomarkkina peli, jossa kuukausittain eniten tuottoa **leikkirahoilleen**. Kuukauden suurimmat voitot tallennetaan pilvessä olevaan tietokantaan, jonka avulla pelaajat voivat seurata sijoittumistaan muihin nähden.
+Sovelluksen tarkoitus on tuottaa opettavaisia ja hauskoja pelihetkiä. Sovellus on siis osake- ja kryptomarkkina peli/simulaattori, jossa tavoitellaan kuukausittain suurinta tuottoa **leikkirahoille**.
 
 ## Käyttöliittymäluonnos
 
-Sovellus koostuu viidestä eri näkymästä
+Sovellus koostuu neljästä eri näkymästä
 
 ![](./kuvat/kayttoliittymaluonnos.png)
 
@@ -31,10 +31,6 @@ Sovellus aukeaa ensimmäisellä käynnistyksellä nimenvalintanäkymään, josta
 - Käyttäjä voi syöttää ostettavan määrän ja nähdä kokonaishinnan.
 - Käyttäjä voi ostaa osaketta salkkuunsa
 
-### Leaderboard ja vertailu
-
-- Käyttäjä voi tarkastella sijoitustaan ja muiden tilannetta online ranking-listalla.
-
 ### Navigointi ja käytettävyys
 
 - Käyttäjä voi käyttää Takaisin -painiketta siirtyäkseen edelliseen näkymään.
@@ -43,6 +39,5 @@ Sovellus aukeaa ensimmäisellä käynnistyksellä nimenvalintanäkymään, josta
 
 Perusversion jälkeen järjestelmää täydennetään ajan salliessa esim. seuraavilla toiminnallisuuksilla:
 
-- Käyttäjä voi tarkastella muiden käyttäjien salkkuja.
 - Käyttäjä näkee enemmän tietoja osakkeista ostohaku näkymässä.
 - Käyttäjä voi vaihtaa sovelluksen vakiovaluuttaa.
