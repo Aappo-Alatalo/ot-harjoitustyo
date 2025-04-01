@@ -6,17 +6,13 @@ Sovelluksen tarkoitus on tuottaa opettavaisia ja hauskoja pelihetkiä. Sovellus 
 
 ## Käyttöliittymäluonnos
 
-Sovellus koostuu neljästä eri näkymästä
+Sovellus koostuu kolmesta eri näkymästä
 
 ![](./kuvat/kayttoliittymaluonnos.png)
 
-Sovellus aukeaa ensimmäisellä käynnistyksellä nimenvalintanäkymään, josta on mahdollista siirtyä muihin näkymiin valitsemalla itselleen nimen. Nimen valittua muissa näkymissä voi seikkailla vapaasti, mutta nimenvalinta näkymään ei enää pääse.
+Sovellus aukeaa Salkkunäkymään, jossa näkyy kaikki omistukset, sekä jotain yleistietoja.
 
 ## Perusversion tarjoama toiminnallisuus
-
-### Käyttäjätilin luonti
-
-- Käyttäjä voi valita nimimerkin, jota ei voi myöhemmin vaihtaa.
 
 ### Salkun hallinta
 
@@ -33,7 +29,7 @@ Sovellus aukeaa ensimmäisellä käynnistyksellä nimenvalintanäkymään, josta
 
 ### Navigointi ja käytettävyys
 
-- Käyttäjä voi käyttää Takaisin -painiketta siirtyäkseen edelliseen näkymään.
+- Käyttäjä voi navigoida kolmen eri näkymän välillä
 
 ## Jatkokehitysideoita
 
