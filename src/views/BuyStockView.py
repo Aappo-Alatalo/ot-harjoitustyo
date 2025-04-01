@@ -1,10 +1,12 @@
 from tkinter import ttk
+from services.BuyService import BuyService
 
 class BuyStockView:
     def __init__(self, root, show_buy_view):
         self._root = root
         self._show_buy_view = show_buy_view
         self._frame = None
+        self._buy_service = BuyService()
 
         self._initialize()
 
@@ -22,7 +24,7 @@ class BuyStockView:
         buy_button = ttk.Button(
             master=self._frame,
             text="BUY",
-            command=lambda: print("USER IS BULLISH")
+            command=lambda: print(self._buy_service.buy_stock("SBUX", 1))
         )
         back_button = ttk.Button(
             master=self._frame,
