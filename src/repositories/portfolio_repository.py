@@ -36,5 +36,9 @@ class PortfolioRepository:
             for row in rows
         ]
 
+    def clear(self):
+        cursor = self._connection.cursor()
+        cursor.execute("DELETE FROM investments")
+        self._connection.commit()
 
 portfolio_repository = PortfolioRepository()

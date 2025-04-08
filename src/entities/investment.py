@@ -7,18 +7,18 @@ class Investment:
         amount,
         purchase_price
     ):
-        self._investment_id = investment_id
-        self._type = investment_type
-        self._name = name
-        self._amount = amount
-        self._purchase_price = purchase_price
+        self.investment_id = investment_id
+        self.type = investment_type
+        self.name = name
+        self.amount = amount
+        self.purchase_price = purchase_price
 
     def __repr__(self):
         return (
             f"Investment("
-            f"id={self._investment_id}, "
-            f"type={self._type}, "
-            f"name={self._name}, "
-            f"amount={self._amount}, "
-            f"purchase_price={self._purchase_price})"
+            f"id={self.investment_id}, "
+            f"type={self.type}, "
+            f"name={self.name}, "
+            f"amount={self.amount}, "
+            f"purchase_price={self.purchase_price})"
         )

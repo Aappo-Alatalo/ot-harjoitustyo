@@ -16,6 +16,3 @@ class BuyService:
         price = self._price_service.get_stock_price(ticker)
         self._portfolio_repo.save("stock", ticker, amount, price)
 
-    def buy_crypto(self, ticker, amount):
-        price = self._price_service.get_crypto_price(ticker)
-        self._portfolio_repo.save("crypto", ticker, amount, price)
