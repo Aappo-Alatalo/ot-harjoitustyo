@@ -2,6 +2,10 @@
 __pycache__
 
 .coverage
+.env
+.env.*
+*.sqlite
+*.sql
 htmlcov
 
 # macOS Finder directory display configuration files

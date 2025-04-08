@@ -25,7 +25,7 @@ class BuyStockView:
         buy_button = ttk.Button(
             master=self._frame,
             text="BUY",
-            command=lambda: print(self._buy_service.buy_stock("SBUX", 1))
+            command=lambda: self._buy_service.buy_stock("SBUX", 1)
         )
         back_button = ttk.Button(
             master=self._frame,

@@ -23,3 +23,7 @@ def format(ctx):
 @task
 def lint(ctx):
     ctx.run("pylint src", pty=True)
+
+@task
+def build_db(ctx):
+    ctx.run("python3 src/db/build.py", pty=True)
