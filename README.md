@@ -33,7 +33,7 @@ poetry install
   DATABASE_FILENAME=test-database.sql
   ```
 
-2. Käynnistä sovellus komennolla:
+3. Käynnistä sovellus komennolla:
 
 ```bash
 poetry run invoke start
