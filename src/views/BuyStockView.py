@@ -27,8 +27,10 @@ class BuyStockView:
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
 
-        stock_name = ttk.Label(master=self._frame, text=self._ticker, font=('', 48))
-        price = ttk.Label(master=self._frame, text=f"${self._price:.2f}" if self._price != "N/A" else "Price not available")
+        stock_name = ttk.Label(
+            master=self._frame, text=self._ticker, font=('', 48))
+        price = ttk.Label(
+            master=self._frame, text=f"${self._price:.2f}" if self._price != "N/A" else "Price not available")
         buy_button = ttk.Button(
             master=self._frame,
             text="BUY",

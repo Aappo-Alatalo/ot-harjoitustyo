@@ -1,6 +1,7 @@
 from tkinter import ttk, StringVar
 from services.price_service import PriceService
 
+
 class BuyView:
     def __init__(self, root, show_default_view, show_buy_stock_view):
         self._root = root
@@ -33,7 +34,8 @@ class BuyView:
 
         viewtitle = ttk.Label(master=self._frame, text="BUY", font=('', 32))
         label = ttk.Label(master=self._frame, text="Stocks/Crypto")
-        ticker_entry = ttk.Entry(master=self._frame, textvariable=self._ticker_var)
+        ticker_entry = ttk.Entry(
+            master=self._frame, textvariable=self._ticker_var)
         search_button = ttk.Button(
             master=self._frame,
             text="Search",

@@ -1,9 +1,10 @@
 from db.database_connection import get_database_connection as get_default_db
 from entities.investment import Investment
 
+
 class PortfolioRepository:
     def __init__(self, connection=get_default_db()):
-      self._connection = connection
+        self._connection = connection
 
     def save(self, investment_type, ticker, amount, price):
         cursor = self._connection.cursor()
@@ -24,6 +25,16 @@ class PortfolioRepository:
 
         rows = cursor.fetchall()
 
-        return [Investment(row["id"], row["type"], row["name"], row["amount"], row["purchase_price"]) for row in rows]
+        return [
+            Investment(
+                row["id"],
+                row["type"],
+                row["name"],
+                row["amount"],
+                row["purchase_price"]
+            )
+            for row in rows
+        ]
+
 
 portfolio_repository = PortfolioRepository()
