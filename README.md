@@ -39,7 +39,7 @@ poetry install
 poetry run invoke build-db
 ```
 
-3. Käynnistä sovellus komennolla:
+4. Käynnistä sovellus komennolla:
 
 ```bash
 poetry run invoke start
