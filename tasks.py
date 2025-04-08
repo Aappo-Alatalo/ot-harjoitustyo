@@ -2,7 +2,7 @@ from invoke import task
 
 @task
 def start(ctx):
-  ctx.run("python3 src/index.py", pty=True)
+  ctx.run("PYTHONPATH=src python3 src/index.py", pty=True)
 
 @task
 def test(ctx):
@@ -26,4 +26,4 @@ def lint(ctx):
 
 @task
 def build_db(ctx):
-    ctx.run("python3 src/db/build.py", pty=True)
+    ctx.run("PYTHONPATH=src python3 src/db/build.py", pty=True)

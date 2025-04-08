@@ -1,5 +1,4 @@
-from database_connection import get_database_connection # pylint: disable=import-error
-# Pylint disabled due to fixing the "error" makes the actual code not work
+from db.database_connection import get_database_connection
 
 
 def drop_tables(connection):
