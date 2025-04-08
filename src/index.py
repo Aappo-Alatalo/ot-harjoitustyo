@@ -37,12 +37,14 @@ class App:
         )
         self._current_view.pack()
 
-    def _show_buy_stock_view(self):
+    def _show_buy_stock_view(self, ticker, price):
         self._hide_current_view()
 
         self._current_view = BuyStockView(
             self._root,
-            self._show_buy_view
+            self._show_buy_view,
+            ticker,
+            price
         )
         self._current_view.pack()
 

@@ -3,11 +3,14 @@ from services.buy_service import BuyService
 
 
 class BuyStockView:
-    def __init__(self, root, show_buy_view):
+    def __init__(self, root, show_buy_view, ticker, price):
         self._root = root
         self._show_buy_view = show_buy_view
         self._frame = None
         self._buy_service = BuyService()
+
+        self._ticker = ticker
+        self._price = price if price is not None else "N/A"
 
         self._initialize()
 
@@ -17,15 +20,19 @@ class BuyStockView:
     def destroy(self):
         self._frame.destroy()
 
+    def _buy_stock(self):
+        if self._price != "N/A":
+            self._buy_service.buy_stock(self._ticker, 1)
+
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
 
-        stock_name = ttk.Label(master=self._frame, text="SBUX", font=('', 48))
-        price = ttk.Label(master=self._frame, text="97,07 EUR")
+        stock_name = ttk.Label(master=self._frame, text=self._ticker, font=('', 48))
+        price = ttk.Label(master=self._frame, text=f"${self._price:.2f}" if self._price != "N/A" else "Price not available")
         buy_button = ttk.Button(
             master=self._frame,
             text="BUY",
-            command=lambda: self._buy_service.buy_stock("SBUX", 1)
+            command=self._buy_stock
         )
         back_button = ttk.Button(
             master=self._frame,
