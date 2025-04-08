@@ -41,4 +41,5 @@ class PortfolioRepository:
         cursor.execute("DELETE FROM investments")
         self._connection.commit()
 
+
 portfolio_repository = PortfolioRepository()

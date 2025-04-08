@@ -4,3 +4,4 @@
 | :--------: | :----- | :----------------------------------------------- |
 |    22.3    | 1,5    | Vaatimusmäärittelyn laadinta                     |
 |    1.4     | 5      | Sovelluksen UI:n toteutus (Tkinter harjoittelua) |
+|    8.4     |  5     | Osakkeiden oston ja haun toteutus                |

@@ -25,11 +25,11 @@ Sovellus aukeaa Salkkunäkymään, jossa näkyy kaikki omistukset, sekä jotain 
 - Käyttäjä voi hakea osakkeita ja kryptovaluuttoja nimellä tai tickerillä.
 - Käyttäjä voi nähdä osakkeen tai kryptovaluutan hinnan euroissa.
 - Käyttäjä voi syöttää ostettavan määrän ja nähdä kokonaishinnan.
-- Käyttäjä voi ostaa osaketta salkkuunsa
+- Käyttäjä voi ostaa osaketta salkkuunsa **TEHTY**
 
 ### Navigointi ja käytettävyys
 
-- Käyttäjä voi navigoida kolmen eri näkymän välillä
+- Käyttäjä voi navigoida kolmen eri näkymän välillä **TEHTY**
 
 ## Jatkokehitysideoita
 

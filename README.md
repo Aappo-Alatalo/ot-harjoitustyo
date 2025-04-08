@@ -7,6 +7,7 @@ Aion toteuttaa kurssilla _Osake- ja kryptomarkkina pelin_, jossa pelaaja kisaa *
 - [Tuntikirjanpito](dokumentaatio/tuntikirjanpito.md)
 - [Vaatimusmäärittely](dokumentaatio/vaatimusmaarittely.md)
 - [Changelog](dokumentaatio/changelog.md)
+- [Arkkitehtuuri](dokumentaatio/arkkitehtuuri.md)
 
 # Asennus
 

@@ -6,6 +6,7 @@ from db.database_connection import get_database_connection
 from repositories.portfolio_repository import PortfolioRepository
 from entities.investment import Investment
 
+
 class TestPortfolioRepository(unittest.TestCase):
     def setUp(self):
         build()
@@ -13,13 +14,14 @@ class TestPortfolioRepository(unittest.TestCase):
         self.portfolio_repository = PortfolioRepository(self.connection)
         self.portfolio_repository.clear()
 
-
     def test_save_investment(self):
-        investment_id = self.portfolio_repository.save("stock", "AAPL", 10, 150.0)
+        investment_id = self.portfolio_repository.save(
+            "stock", "AAPL", 10, 150.0)
         self.assertIsNotNone(investment_id)
 
         cursor = self.connection.cursor()
-        cursor.execute("SELECT * FROM investments WHERE id = ?", (investment_id,))
+        cursor.execute("SELECT * FROM investments WHERE id = ?",
+                       (investment_id,))
         row = cursor.fetchone()
 
         self.assertIsNotNone(row)

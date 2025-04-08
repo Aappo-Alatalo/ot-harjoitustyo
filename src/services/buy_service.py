@@ -15,4 +15,3 @@ class BuyService:
         print(f"Buying {amount} shares of {ticker}...")
         price = self._price_service.get_stock_price(ticker)
         self._portfolio_repo.save("stock", ticker, amount, price)
-
