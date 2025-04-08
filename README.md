@@ -20,6 +20,19 @@ Aion toteuttaa kurssilla _Osake- ja kryptomarkkina pelin_, jossa pelaaja kisaa *
 poetry install
 ```
 
+2. Luo ympäristömuuttujatiedostot seuraavasti:
+
+- **`.env`**: Lisää SQLite-tietokantatiedoston nimi (nimet esimerkkejä).
+
+  ```env
+  DATABASE_FILENAME=database.sqlite
+  ```
+
+- **`.env.test`**: Lisää testitietokantatiedoston nimi (oleellinen vain, jos suoritat testejä).
+  ```env
+  DATABASE_FILENAME=test-database.sql
+  ```
+
 2. Käynnistä sovellus komennolla:
 
 ```bash
