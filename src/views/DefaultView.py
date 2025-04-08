@@ -1,5 +1,6 @@
 from tkinter import ttk
 
+
 class DefaultView:
     def __init__(self, root, show_buy_view):
         self._root = root
@@ -17,7 +18,8 @@ class DefaultView:
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
 
-        viewtitle = ttk.Label(master=self._frame, text="This month overview", font=('',32))
+        viewtitle = ttk.Label(master=self._frame,
+                              text="This month overview", font=('', 32))
         holdings_label = ttk.Label(master=self._frame, text="holdings")
         button = ttk.Button(
             master=self._frame,

@@ -1,5 +1,6 @@
 from tkinter import ttk
-from services.BuyService import BuyService
+from services.buy_service import BuyService
+
 
 class BuyStockView:
     def __init__(self, root, show_buy_view):
@@ -19,7 +20,7 @@ class BuyStockView:
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
 
-        stock_name = ttk.Label(master=self._frame, text="SBUX", font=('',48))
+        stock_name = ttk.Label(master=self._frame, text="SBUX", font=('', 48))
         price = ttk.Label(master=self._frame, text="97,07 EUR")
         buy_button = ttk.Button(
             master=self._frame,

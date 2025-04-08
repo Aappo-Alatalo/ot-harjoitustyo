@@ -3,6 +3,7 @@ from views.DefaultView import DefaultView
 from views.BuyView import BuyView
 from views.BuyStockView import BuyStockView
 
+
 class App:
     def __init__(self, root):
         self._root = root
@@ -16,7 +17,7 @@ class App:
             self._current_view.destroy()
 
         self._current_view = None
-    
+
     def _show_default_view(self):
         self._hide_current_view()
 
@@ -44,6 +45,7 @@ class App:
             self._show_buy_view
         )
         self._current_view.pack()
+
 
 window = Tk()
 window.title("Trade Royale")
