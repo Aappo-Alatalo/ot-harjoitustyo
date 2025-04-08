@@ -1,5 +1,6 @@
 import sqlite3
-from db.config import DATABASE_FILE_PATH
+from config import DATABASE_FILE_PATH # pylint: disable=import-error
+# Pylint disabled due to fixing the "error" makes the actual code not work
 
 CONNECTION = None
 
