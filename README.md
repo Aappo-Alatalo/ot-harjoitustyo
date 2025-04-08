@@ -33,6 +33,12 @@ poetry install
   DATABASE_FILENAME=test-database.sql
   ```
 
+3. Luo tietokanta komennolla:
+
+```bash
+poetry run invoke build-db
+```
+
 3. Käynnistä sovellus komennolla:
 
 ```bash
