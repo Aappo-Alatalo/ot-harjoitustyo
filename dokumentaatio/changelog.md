@@ -13,3 +13,7 @@
 - BuyService testattu muutosten osalta
 - PriceService testattu
 - PortfolioRepository testattu
+
+## Viikko 5
+
+- Ohjelma ja dokumentaatio korjattu Labtool palautteen mukaisesti.
