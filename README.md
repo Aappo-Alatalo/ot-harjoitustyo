@@ -9,6 +9,10 @@ Aion toteuttaa kurssilla _Osake- ja kryptomarkkina pelin_, jossa pelaaja kisaa *
 - [Changelog](dokumentaatio/changelog.md)
 - [Arkkitehtuuri](dokumentaatio/arkkitehtuuri.md)
 
+# Release
+
+[Viikon 5 release](https://github.com/Aappo-Alatalo/ot-harjoitustyo/releases/tag/viikko5)
+
 # Asennus
 
 > [!IMPORTANT]  
