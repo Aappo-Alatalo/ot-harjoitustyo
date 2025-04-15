@@ -63,4 +63,18 @@ Testikattavuusraportin voi generoida komennolla:
 poetry run invoke coverage-report
 ```
 
+### Linttaus ja formatointi (autopep8)
+
+Koodin voi lintata komennolla:
+
+```bash
+poetry run invoke lint
+```
+
+ja formatoida komennolla:
+
+```bash
+poetry run invoke format
+```
+
 Raportti generoituu _htmlcov_-hakemistoon ja raporttia voi tarkastella selaimella.
