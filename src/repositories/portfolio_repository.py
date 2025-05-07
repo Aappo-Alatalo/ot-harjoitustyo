@@ -10,7 +10,7 @@ class PortfolioRepository:
         cursor = self._connection.cursor()
 
         cursor.execute('''
-            INSERT INTO investments (type, name, amount, purchase_price)
+            INSERT INTO investment (type, name, amount, purchase_price)
             VALUES (?, ?, ?, ?)
         ''', (investment_type, ticker, amount, price))
 
@@ -21,7 +21,7 @@ class PortfolioRepository:
     def get_all(self):
         cursor = self._connection.cursor()
 
-        cursor.execute("SELECT * FROM investments")
+        cursor.execute("SELECT * FROM investment")
 
         rows = cursor.fetchall()
 
@@ -38,7 +38,7 @@ class PortfolioRepository:
 
     def clear(self):
         cursor = self._connection.cursor()
-        cursor.execute("DELETE FROM investments")
+        cursor.execute("DELETE FROM investment")
         self._connection.commit()
 
 

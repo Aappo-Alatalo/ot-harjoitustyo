@@ -20,7 +20,7 @@ class TestPortfolioRepository(unittest.TestCase):
         self.assertIsNotNone(investment_id)
 
         cursor = self.connection.cursor()
-        cursor.execute("SELECT * FROM investments WHERE id = ?",
+        cursor.execute("SELECT * FROM investment WHERE id = ?",
                        (investment_id,))
         row = cursor.fetchone()
 
