@@ -1,45 +1,52 @@
 from db.database_connection import get_database_connection as get_default_db
-from entities.investment import Investment
+from entities.portfolio import Portfolio
 
 
 class PortfolioRepository:
     def __init__(self, connection=get_default_db()):
         self._connection = connection
 
-    def save(self, investment_type, ticker, amount, price):
+    def add_funds(self, name, amount):
         cursor = self._connection.cursor()
 
         cursor.execute('''
-            INSERT INTO investment (type, name, amount, purchase_price)
-            VALUES (?, ?, ?, ?)
-        ''', (investment_type, ticker, amount, price))
+            UPDATE portfolio
+            SET funds = funds + ?
+            WHERE name = ?
+        ''', (amount, name))
 
         self._connection.commit()
-        print("Investment saved successfully.")
+        print("Portfolio funds added successfully.")
         return cursor.lastrowid
-
-    def get_all(self):
+    
+    def subtract_funds(self, name, amount):
         cursor = self._connection.cursor()
 
-        cursor.execute("SELECT * FROM investment")
-
-        rows = cursor.fetchall()
-
-        return [
-            Investment(
-                row["id"],
-                row["type"],
-                row["name"],
-                row["amount"],
-                row["purchase_price"]
-            )
-            for row in rows
-        ]
-
-    def clear(self):
-        cursor = self._connection.cursor()
-        cursor.execute("DELETE FROM investment")
+        cursor.execute('''
+            UPDATE portfolio
+            SET funds = funds - ?
+            WHERE name = ?
+        ''', (amount, name))
+        
         self._connection.commit()
+        print("Portfolio funds subtracted successfully.")
+        return cursor.lastrowid
+    
+    def get(self, name):
+        cursor = self._connection.cursor()
+
+        cursor.execute("SELECT * FROM portfolio WHERE name = ?", (name,))
+
+        row = cursor.fetchone()
+
+        if row:
+            return Portfolio(
+                row["id"],
+                row["name"],
+                row["funds"],
+            )
+        else:
+            return None
 
 
 portfolio_repository = PortfolioRepository()

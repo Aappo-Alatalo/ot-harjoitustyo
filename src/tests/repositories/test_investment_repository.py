@@ -3,19 +3,19 @@ import unittest
 from db.build import build
 from db.database_connection import get_database_connection
 
-from repositories.portfolio_repository import PortfolioRepository
+from repositories.investment_repository import InvestmentRepository
 from entities.investment import Investment
 
 
-class TestPortfolioRepository(unittest.TestCase):
+class TestInvestmentRepository(unittest.TestCase):
     def setUp(self):
         build()
         self.connection = get_database_connection()
-        self.portfolio_repository = PortfolioRepository(self.connection)
-        self.portfolio_repository.clear()
+        self.investment_repository = InvestmentRepository(self.connection)
+        self.investment_repository.clear()
 
     def test_save_investment(self):
-        investment_id = self.portfolio_repository.save(
+        investment_id = self.investment_repository.save(
             "stock", "AAPL", 10, 150.0)
         self.assertIsNotNone(investment_id)
 
@@ -31,10 +31,10 @@ class TestPortfolioRepository(unittest.TestCase):
         self.assertEqual(row["purchase_price"], 150.0)
 
     def test_get_all_investments(self):
-        self.portfolio_repository.save("stock", "AAPL", 10, 150.0)
-        self.portfolio_repository.save("stock", "SBUX", 2, 80.0)
+        self.investment_repository.save("stock", "AAPL", 10, 150.0)
+        self.investment_repository.save("stock", "SBUX", 2, 80.0)
 
-        investments = self.portfolio_repository.get_all()
+        investments = self.investment_repository.get_all()
 
         self.assertEqual(len(investments), 2)
         self.assertIsInstance(investments[0], Investment)

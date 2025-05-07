@@ -29,6 +29,7 @@ def create_tables(connection):
     cursor.execute('''
         CREATE TABLE portfolio (
             id integer primary key autoincrement,
+            name text,
             funds real
         );
     ''')
@@ -53,8 +54,8 @@ def initialize_database():
     print("Populating portfolio table...")
     cursor = connection.cursor()
     cursor.execute('''
-        INSERT INTO portfolio (funds)
-        VALUES (10000.0)
+        INSERT INTO portfolio (name, funds)
+        VALUES ('Default', 10000.0)
     ''')
     connection.commit()
     print("Done ✅")
