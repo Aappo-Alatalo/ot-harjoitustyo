@@ -12,6 +12,15 @@ class BuyService:
         self._portfolio_repo = portfolio_repo
 
     def buy_stock(self, ticker, amount):
+        if amount <= 0:
+            raise ValueError("Amount must be greater than 0")
+        if not isinstance(amount, int):
+            raise TypeError("Amount must be an integer")
+        if not isinstance(ticker, str):
+            raise TypeError("Ticker must be a string")
+        if not ticker:
+            raise ValueError("Ticker cannot be empty")
+
         print(f"Buying {amount} shares of {ticker}...")
         price = self._price_service.get_stock_price(ticker)
         self._portfolio_repo.save("stock", ticker, amount, price)
