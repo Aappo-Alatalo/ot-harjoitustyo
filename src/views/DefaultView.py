@@ -20,7 +20,7 @@ class DefaultView:
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
 
-        funds_label = ttk.Label(master=self._frame, text=f"Funds: {self._portfolio_service.get_funds('Default')}")
+        funds_label = ttk.Label(master=self._frame, text=f"Account balance: {self._portfolio_service.get_funds('Default'):.2f} €")
 
         viewtitle = ttk.Label(master=self._frame,
                               text="This month overview", font=('', 32))

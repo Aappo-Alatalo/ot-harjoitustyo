@@ -17,6 +17,17 @@ class PortfolioService:
         print(f"Adding {amount} funds to portfolio {name}...")
         self._portfolio_repo.add_funds(name, amount)
 
+    def subtract_funds(self, name, amount):
+        if amount <= 0:
+            raise ValueError("Amount must be greater than 0")
+        if not isinstance(amount, (int, float)):
+            raise TypeError("Amount must be a number")
+        if not name:
+            raise ValueError("Name cannot be empty")
+
+        print(f"Subtracting {amount} funds from portfolio {name}...")
+        self._portfolio_repo.subtract_funds(name, amount)
+
     def get_funds(self, name):
         if not name:
             raise ValueError("Name cannot be empty")
@@ -28,3 +39,5 @@ class PortfolioService:
             return portfolio.funds
         else:
             raise ValueError(f"Portfolio with name {name} not found")
+        
+portfolio_service = PortfolioService()
