@@ -6,8 +6,19 @@ class PriceService:
         self._api_client = api_client
 
     def get_stock_price(self, ticker):
-        stock = self._api_client.Ticker(ticker)
-        price = stock.history(period="1d")["Close"].iloc[-1]
+
+        if not ticker:
+            raise ValueError("Ticker cannot be empty")
+        if not isinstance(ticker, str):
+            raise TypeError("Ticker must be a string")
+
+        try:
+            stock = self._api_client.Ticker(ticker)
+            price = stock.history(period="1d")["Close"].iloc[-1]
+        except:
+            print(f"Error retrieving price for {ticker}.")
+            return None
+
         return price
 
 

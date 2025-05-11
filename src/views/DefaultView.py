@@ -1,5 +1,6 @@
 from tkinter import ttk
 from services.portfolio_service import PortfolioService
+from services.price_service import price_service
 
 class DefaultView:
     def __init__(self, root, show_buy_view):
@@ -29,19 +30,21 @@ class DefaultView:
 
         table = ttk.Treeview(
             master=self._frame,
-            columns=("Name", "Amount", "Value", "Sell"),
+            columns=("Name", "Amount", "Value", "Valuation Change", "Sell"),
             show="headings"
         )
 
         table.heading("Name", text="Name")
         table.heading("Amount", text="Amount")
         table.heading("Value", text="Value")
+        table.heading("Valuation Change", text="Valuation Change")
         table.heading("Sell", text="Sell")
 
         investments = self._portfolio_service.get_investments("Default")
         if investments:
             for investment in investments:
-                table.insert(parent="", index=0, values=(investment.name, int(investment.amount), f"{investment.purchase_price:.2f} €", "Sell"))
+                current_price = price_service.get_stock_price(investment.name)
+                table.insert(parent="", index=0, values=(investment.name, int(investment.amount), f"{(investment.amount * current_price):.2f} €", f"{(((current_price-investment.purchase_price)/investment.purchase_price) * 100):.2f}%" ,"Sell"))
         else:
             print("No investments found for this portfolio.")
 

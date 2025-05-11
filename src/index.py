@@ -51,7 +51,7 @@ class App:
 
 window = Tk()
 window.title("Trade Royale")
-window.geometry("800x600")
+window.geometry("1000x600")
 
 app = App(window)
 app.start()
