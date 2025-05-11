@@ -17,3 +17,8 @@
 ## Viikko 5
 
 - Ohjelma ja dokumentaatio korjattu Labtool palautteen mukaisesti.
+
+## Viikko 7, lopullinen palautus
+
+- Portfolion katsominen päänäkymässä
+- Dokumentaation viimeistely

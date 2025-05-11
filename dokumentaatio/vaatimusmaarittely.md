@@ -2,29 +2,29 @@
 
 ## Sovelluksen tarkoitus
 
-Sovelluksen tarkoitus on tuottaa opettavaisia ja hauskoja pelihetkiä. Sovellus on siis osake- ja kryptomarkkina peli/simulaattori, jossa tavoitellaan kuukausittain suurinta tuottoa **leikkirahoille**.
+Sovellus on osake- ja kryptomarkkina simulaattori. Sovelluksen tarkoitus on tuottaa opettavaisia ja hauskoja kokemuksia osakkeiden parissa. Käyttäjien tileillä on **leikkirahaa**.
 
 ## Käyttöliittymäluonnos
 
 Sovellus koostuu kolmesta eri näkymästä
 
-![](./kuvat/kayttoliittymaluonnos.png)
+![](./kuvat/portfolio.png)
+![](./kuvat/haku.png)
+![](./kuvat/osto.png)
 
 Sovellus aukeaa Salkkunäkymään, jossa näkyy kaikki omistukset, sekä jotain yleistietoja.
 
 ## Perusversion tarjoama toiminnallisuus
 
-### Salkun hallinta
+### Salkku
 
-- Käyttäjä voi nähdä salkkunsa arvon ja prosentuaalisen muutoksen.
-- Käyttäjä voi tarkastella omistamiaan osakkeita ja niiden määriä.
-- Käyttäjä voi myydä osakkeita yhdellä napin painalluksella.
+- Käyttäjä voi nähdä osakkeidensa arvon ja prosentuaalisen muutoksen. **TEHTY**
+- Käyttäjä voi tarkastella omistamiaan osakkeita ja niiden määriä. **TEHTY**
 
 ### Osakkeiden ja kryptovaluuttojen ostaminen
 
-- Käyttäjä voi hakea osakkeita ja kryptovaluuttoja nimellä tai tickerillä.
-- Käyttäjä voi nähdä osakkeen tai kryptovaluutan hinnan euroissa.
-- Käyttäjä voi syöttää ostettavan määrän ja nähdä kokonaishinnan.
+- Käyttäjä voi hakea osakkeita ja kryptovaluuttoja tickerillä. **TEHTY**
+- Käyttäjä voi nähdä osakkeen tai kryptovaluutan hinnan euroissa. **TEHTY**
 - Käyttäjä voi ostaa osaketta salkkuunsa **TEHTY**
 
 ### Navigointi ja käytettävyys
