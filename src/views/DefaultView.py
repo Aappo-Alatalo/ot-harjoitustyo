@@ -24,13 +24,12 @@ class DefaultView:
         funds_label = ttk.Label(master=self._frame, text=f"Account balance: {self._portfolio_service.get_funds('Default'):.2f} €", font=('', 16))
 
         viewtitle = ttk.Label(master=self._frame,
-                              text="This month overview", font=('', 32))
-        
-        portfolio_label = ttk.Label(master=self._frame, text="Your portfolio:", font=('', 14))
+                              text="Your portfolio", font=('', 32))
+    
 
         table = ttk.Treeview(
             master=self._frame,
-            columns=("Name", "Amount", "Value", "Valuation Change", "Sell"),
+            columns=("Name", "Amount", "Value", "Valuation Change"),
             show="headings"
         )
 
@@ -38,13 +37,12 @@ class DefaultView:
         table.heading("Amount", text="Amount")
         table.heading("Value", text="Value")
         table.heading("Valuation Change", text="Valuation Change")
-        table.heading("Sell", text="Sell")
 
         investments = self._portfolio_service.get_investments("Default")
         if investments:
             for investment in investments:
                 current_price = price_service.get_stock_price(investment.name)
-                table.insert(parent="", index=0, values=(investment.name, int(investment.amount), f"{(investment.amount * current_price):.2f} €", f"{(((current_price-investment.purchase_price)/investment.purchase_price) * 100):.2f}%" ,"Sell"))
+                table.insert(parent="", index=0, values=(investment.name, int(investment.amount), f"{(investment.amount * current_price):.2f} €", f"{(((current_price-investment.purchase_price)/investment.purchase_price) * 100):.2f}%"))
         else:
             print("No investments found for this portfolio.")
 
@@ -56,6 +54,5 @@ class DefaultView:
 
         funds_label.grid(row=0, column=0, padx=10, pady=5, sticky="NSEW")
         viewtitle.grid(row=1, column=0, padx=10, pady=5, sticky="NSEW")
-        portfolio_label.grid(row=2, column=0, padx=10, pady=5, sticky="ew")
         table.grid(row=3, column=0, padx=10, pady=5, sticky="NSEW")
         button.grid(row=4, column=0, padx=10, pady=3, sticky="ew")

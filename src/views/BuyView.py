@@ -33,7 +33,7 @@ class BuyView:
         self._frame = ttk.Frame(master=self._root)
 
         viewtitle = ttk.Label(master=self._frame, text="BUY", font=('', 32))
-        label = ttk.Label(master=self._frame, text="Stocks/Crypto")
+        label = ttk.Label(master=self._frame, text="Stocks/Crypto (search crypto:ticker-EUR)")
         ticker_entry = ttk.Entry(
             master=self._frame, textvariable=self._ticker_var)
         search_button = ttk.Button(
