@@ -20,11 +20,31 @@ class DefaultView:
     def _initialize(self):
         self._frame = ttk.Frame(master=self._root)
 
-        funds_label = ttk.Label(master=self._frame, text=f"Account balance: {self._portfolio_service.get_funds('Default'):.2f} €")
+        funds_label = ttk.Label(master=self._frame, text=f"Account balance: {self._portfolio_service.get_funds('Default'):.2f} €", font=('', 16))
 
         viewtitle = ttk.Label(master=self._frame,
                               text="This month overview", font=('', 32))
-        holdings_label = ttk.Label(master=self._frame, text="holdings")
+        
+        portfolio_label = ttk.Label(master=self._frame, text="Your portfolio:", font=('', 14))
+
+        table = ttk.Treeview(
+            master=self._frame,
+            columns=("Name", "Amount", "Value", "Sell"),
+            show="headings"
+        )
+
+        table.heading("Name", text="Name")
+        table.heading("Amount", text="Amount")
+        table.heading("Value", text="Value")
+        table.heading("Sell", text="Sell")
+
+        investments = self._portfolio_service.get_investments("Default")
+        if investments:
+            for investment in investments:
+                table.insert(parent="", index=0, values=(investment.name, int(investment.amount), f"{investment.purchase_price:.2f} €", "Sell"))
+        else:
+            print("No investments found for this portfolio.")
+
         button = ttk.Button(
             master=self._frame,
             text="BUY",
@@ -33,5 +53,6 @@ class DefaultView:
 
         funds_label.grid(row=0, column=0, padx=10, pady=5, sticky="NSEW")
         viewtitle.grid(row=1, column=0, padx=10, pady=5, sticky="NSEW")
-        holdings_label.grid(row=2, column=0, padx=10, pady=5, sticky="ew")
+        portfolio_label.grid(row=2, column=0, padx=10, pady=5, sticky="ew")
+        table.grid(row=3, column=0, padx=10, pady=5, sticky="NSEW")
         button.grid(row=4, column=0, padx=10, pady=3, sticky="ew")

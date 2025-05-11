@@ -17,4 +17,4 @@ class TestBuyService(unittest.TestCase):
         self.buy_service.buy_stock("AAPL", 5)
         self.mock_price_service.get_stock_price.assert_called_once_with("AAPL")
         self.mock_investment_repo.save.assert_called_once_with(
-            "stock", "AAPL", 5, 150)
+            1, "stock", "AAPL", 5, 150)

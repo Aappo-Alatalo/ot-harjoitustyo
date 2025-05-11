@@ -6,13 +6,32 @@ class InvestmentRepository:
     def __init__(self, connection=get_default_db()):
         self._connection = connection
 
-    def save(self, investment_type, ticker, amount, price):
+    def save(self, portfolio_id, investment_type, ticker, amount, price):
+
+        if not portfolio_id or not investment_type or not ticker or not amount or not price:
+            raise ValueError("Required fields are missing")
+
+        if not isinstance(portfolio_id, int):
+            raise TypeError("Portfolio ID must be an integer")
+        if not isinstance(investment_type, str):
+            raise TypeError("Investment type must be a string")
+        if not isinstance(ticker, str):
+            raise TypeError("Ticker must be a string")
+        if not isinstance(amount, (int, float)):
+            raise TypeError("Amount must be a number")
+        if not isinstance(price, (int, float)):
+            raise TypeError("Price must be a number")
+        if amount <= 0:
+            raise ValueError("Amount must be greater than 0")
+        if price <= 0:
+            raise ValueError("Price must be greater than 0")
+        
         cursor = self._connection.cursor()
 
         cursor.execute('''
-            INSERT INTO investment (type, name, amount, purchase_price)
-            VALUES (?, ?, ?, ?)
-        ''', (investment_type, ticker, amount, price))
+            INSERT INTO investment (portfolio_id, type, name, amount, purchase_price)
+            VALUES (?, ?, ?, ?, ?)
+        ''', (portfolio_id, investment_type, ticker, amount, price))
 
         self._connection.commit()
         print("Investment saved successfully.")

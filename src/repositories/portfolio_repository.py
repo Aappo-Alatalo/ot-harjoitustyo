@@ -1,5 +1,6 @@
 from db.database_connection import get_database_connection as get_default_db
 from entities.portfolio import Portfolio
+from entities.investment import Investment
 
 
 class PortfolioRepository:
@@ -48,5 +49,25 @@ class PortfolioRepository:
         else:
             return None
 
+    def get_investments(self, name):
+        cursor = self._connection.cursor()
+
+        cursor.execute("SELECT * FROM investment WHERE portfolio_id = (SELECT id FROM portfolio WHERE name = ?)", (name,))
+
+        rows = cursor.fetchall()
+
+        investments = []
+        for row in rows:
+            investments.append(
+                Investment(
+                    row["id"],
+                    row["type"],
+                    row["name"],
+                    row["amount"],
+                    row["purchase_price"]
+                )
+            )
+
+        return investments 
 
 portfolio_repository = PortfolioRepository()

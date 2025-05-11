@@ -34,7 +34,7 @@ class BuyService:
             return print("Not enough funds")
         else:
             try:
-                self._investment_repo.save("stock", ticker, amount, price)
+                self._investment_repo.save(1, "stock", ticker, amount, price)
             except:
                 return print("Failed to save investment")
             

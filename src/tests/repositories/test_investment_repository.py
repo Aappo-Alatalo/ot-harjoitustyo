@@ -16,7 +16,7 @@ class TestInvestmentRepository(unittest.TestCase):
 
     def test_save_investment(self):
         investment_id = self.investment_repository.save(
-            "stock", "AAPL", 10, 150.0)
+            1, "stock", "AAPL", 10, 150.0)
         self.assertIsNotNone(investment_id)
 
         cursor = self.connection.cursor()
@@ -31,8 +31,8 @@ class TestInvestmentRepository(unittest.TestCase):
         self.assertEqual(row["purchase_price"], 150.0)
 
     def test_get_all_investments(self):
-        self.investment_repository.save("stock", "AAPL", 10, 150.0)
-        self.investment_repository.save("stock", "SBUX", 2, 80.0)
+        self.investment_repository.save(1, "stock", "AAPL", 10, 150.0)
+        self.investment_repository.save(1, "stock", "SBUX", 2, 80.0)
 
         investments = self.investment_repository.get_all()
 

@@ -40,4 +40,16 @@ class PortfolioService:
         else:
             raise ValueError(f"Portfolio with name {name} not found")
         
+    def get_investments(self, name):
+        if not name:
+            raise ValueError("Name cannot be empty")
+        if not isinstance(name, str):
+            raise TypeError("Name must be a string")
+
+        investments = self._portfolio_repo.get_investments(name)
+        if investments:
+            return investments
+        else:
+            return print("No investments found for this portfolio.")
+        
 portfolio_service = PortfolioService()
