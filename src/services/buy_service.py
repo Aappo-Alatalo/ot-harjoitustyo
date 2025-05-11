@@ -10,7 +10,11 @@ from services.portfolio_service import (
 
 
 class BuyService:
-    def __init__(self, price_service=default_price_service, investment_repo=default_investment_repo, portfolio_service=default_portfolio_service):
+    def __init__(self,
+                 price_service=default_price_service,
+                 investment_repo=default_investment_repo,
+                 portfolio_service=default_portfolio_service):
+
         self._portfolio_service = portfolio_service
         self._price_service = price_service
         self._investment_repo = investment_repo
@@ -29,22 +33,21 @@ class BuyService:
         price = self._price_service.get_stock_price(ticker)
         if price is None:
             raise ValueError(f"Could not retrieve price for {ticker}")
-        
+
         if price * amount > self._portfolio_service.get_funds("Default"):
             return print("Not enough funds")
-        else:
-            try:
-                self._investment_repo.save(1, "stock", ticker, amount, price)
-            except:
-                return print("Failed to save investment")
-            
-            try:
-                self._portfolio_service.subtract_funds("Default", price * amount)
-            except:
-                return print("Failed to subtract funds")
-            
-            print(f"Successfully bought {amount} shares of {ticker} at {price} each.")
-            return True
-        
-        
 
+        try:
+            self._investment_repo.save(1, "stock", ticker, amount, price)
+        except:
+            return print("Failed to save investment")
+
+        try:
+            self._portfolio_service.subtract_funds(
+                "Default", price * amount)
+        except:
+            return print("Failed to subtract funds")
+
+        print(
+            f"Successfully bought {amount} shares of {ticker} at {price} each.")
+        return True

@@ -2,6 +2,7 @@ from repositories.portfolio_repository import (
     portfolio_repository as default_portfolio_repo,
 )
 
+
 class PortfolioService:
     def __init__(self, portfolio_repo=default_portfolio_repo):
         self._portfolio_repo = portfolio_repo
@@ -37,9 +38,9 @@ class PortfolioService:
         portfolio = self._portfolio_repo.get(name)
         if portfolio:
             return portfolio.funds
-        else:
-            raise ValueError(f"Portfolio with name {name} not found")
-        
+
+        raise ValueError(f"Portfolio with name {name} not found")
+
     def get_investments(self, name):
         if not name:
             raise ValueError("Name cannot be empty")
@@ -49,7 +50,8 @@ class PortfolioService:
         investments = self._portfolio_repo.get_investments(name)
         if investments:
             return investments
-        else:
-            return print("No investments found for this portfolio.")
-        
+
+        return print("No investments found for this portfolio.")
+
+
 portfolio_service = PortfolioService()

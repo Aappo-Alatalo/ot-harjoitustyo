@@ -24,21 +24,22 @@ class InvestmentRepository:
             raise ValueError("Amount must be greater than 0")
         if price <= 0:
             raise ValueError("Price must be greater than 0")
-        
+
         cursor = self._connection.cursor()
 
         cursor.execute('''
             SELECT id, amount, purchase_price FROM investment
             WHERE portfolio_id = ? AND name = ?
         ''', (portfolio_id, ticker))
-        
+
         existing = cursor.fetchone()
         if existing:
             existing_amount = existing["amount"]
             existing_price = existing["purchase_price"]
 
             total_amount = existing_amount + amount
-            new_avg_price = ((existing_amount * existing_price) + (amount * price)) / total_amount
+            new_avg_price = ((existing_amount * existing_price) +
+                             (amount * price)) / total_amount
             cursor.execute('''
                 UPDATE investment
                 SET amount = ?, purchase_price = ?
@@ -50,7 +51,7 @@ class InvestmentRepository:
                 VALUES (?, ?, ?, ?, ?)
             ''', (portfolio_id, investment_type, ticker, amount, price))
 
-        self._connection.commit() 
+        self._connection.commit()
         print("Investment saved successfully.")
         return cursor.lastrowid
 

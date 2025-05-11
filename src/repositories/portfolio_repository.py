@@ -19,7 +19,7 @@ class PortfolioRepository:
         self._connection.commit()
         print("Portfolio funds added successfully.")
         return cursor.lastrowid
-    
+
     def subtract_funds(self, name, amount):
         cursor = self._connection.cursor()
 
@@ -28,11 +28,11 @@ class PortfolioRepository:
             SET funds = funds - ?
             WHERE name = ?
         ''', (amount, name))
-        
+
         self._connection.commit()
         print("Portfolio funds subtracted successfully.")
         return cursor.lastrowid
-    
+
     def get(self, name):
         cursor = self._connection.cursor()
 
@@ -46,13 +46,16 @@ class PortfolioRepository:
                 row["name"],
                 row["funds"],
             )
-        else:
-            return None
+
+        return None
 
     def get_investments(self, name):
         cursor = self._connection.cursor()
 
-        cursor.execute("SELECT * FROM investment WHERE portfolio_id = (SELECT id FROM portfolio WHERE name = ?)", (name,))
+        cursor.execute(
+            """SELECT * FROM investment 
+                WHERE portfolio_id = (SELECT id FROM portfolio WHERE name = ?)
+            """, (name,))
 
         rows = cursor.fetchall()
 
@@ -68,6 +71,7 @@ class PortfolioRepository:
                 )
             )
 
-        return investments 
+        return investments
+
 
 portfolio_repository = PortfolioRepository()
